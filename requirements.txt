@@ -1,7 +1,7 @@
 streamlit==1.24.0
 streamlit-option-menu==0.3.13
 streamlit-folium==0.11.1
-Pillow==10.0.0
+Pillow==9.5.0
 folium==0.14.0  # Este es necesario por streamlit-folium, que necesita >=0.13
 geopandas==0.13.0
 tokenizers>=0.10.1
@@ -13,5 +13,8 @@ wordcloud==1.9.3
 fpdf==1.7.2
 gtts==2.2.3  # Para texto a voz (gTTS)
 python-dotenv==0.21.0
+
+
+
 
 
