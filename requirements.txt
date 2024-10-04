@@ -1,7 +1,7 @@
 streamlit==1.25.0
 Pillow==9.2.0  # Para la manipulación de imágenes (PIL)
 transformers==4.27.0  # Modelos de transformers como T5
-torch==2.0.0  # Para PyTorch y el manejo de modelos
+torch  # Para PyTorch y el manejo de modelos
 re  # Para operaciones con expresiones regulares
 pandas==1.4.3  # Para manejo de dataframes y datos en Excel
 matplotlib==3.5.2  # Para gráficos y visualizaciones
