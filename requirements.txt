@@ -4,7 +4,7 @@ streamlit-folium==0.11.1
 Pillow==9.5.0
 folium==0.14.0
 geopandas==0.13.0
-tokenizers==0.13.3
+okenizers==0.12.1
 transformers==4.32
 torch>=1.9.0 
 pandas==2.0.3
