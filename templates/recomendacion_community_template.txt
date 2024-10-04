@@ -1,0 +1,11 @@
+La comunidad autónoma de {{ Comunidad Autónoma }} ha obtenido una puntuación total de {{ total_score }} en el scorecard de inversión.
+
+Puntos fuertes:
+{{ puntos_fuertes }}
+
+Áreas de mejora:
+{{ areas_mejora }}
+
+En resumen, {{ Comunidad Autónoma }} presenta un entorno competitivo con varias ventajas que la hacen atractiva para la inversión tecnológica. A pesar de esto, algunas áreas podrían optimizarse para aumentar aún más su atractivo.
+
+

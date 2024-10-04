@@ -1,0 +1,21 @@
+Descripción del Modelo de Negocio:
+{{ descripcion_negocio }}
+
+Propuesta de Valor:
+El negocio presenta un valor añadido enfocado en {{ valor_anadido }}, lo cual soluciona la siguiente necesidad o problema en el mercado {{ enfoque_unico }}.
+
+Tecnologías Clave Utilizadas:
+Las tecnologías que impulsan este modelo son {{ tecnologias_clave }}, esenciales para el desarrollo del producto o servicio.
+
+Estrategia de Crecimiento y Evolución:
+A corto y mediano plazo, se prevé que el negocio evolucione de la siguiente manera {{ desarrollo_y_evolucion }}, lo que permitirá su crecimiento en un mercado en constante transformación.
+
+Requisitos Tecnológicos:
+Para la ejecución y escalabilidad del proyecto, se necesitan los siguientes recursos tecnológicos {{ recursos_tecnologicos }}.
+
+Proyección Financiera:
+Se estima que los ingresos en los primeros tres años alcanzarán {{ proyección_financiera }}, en línea con el plan de crecimiento estratégico.
+
+Clasificación del Modelo de Negocio:
+Este proyecto se clasifica bajo el tipo de negocio {{ sector_clasificado }}, el cual ha sido determinado en base a las respuestas proporcionadas y al análisis del mercado.
+
