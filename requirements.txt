@@ -1,6 +1,7 @@
 streamlit==1.24.0
 streamlit-option-menu==0.3.13
 streamlit-folium==0.11.1
+pillow
 folium==0.14.0  # Este es necesario por streamlit-folium, que necesita >=0.13
 geopandas==0.13.0
 transformers==4.27.0
