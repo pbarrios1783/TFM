@@ -8,6 +8,7 @@ transformers==4.27.0
 torch==2.4.1
 pandas==1.4.3
 matplotlib==3.5.2
-wordcloud==1.8.1
+wordcloud==1.8.2
 fpdf==1.7.2
 gtts==2.2.3  # Para texto a voz (gTTS)
+python-dotenv==0.21.0
