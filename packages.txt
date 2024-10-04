@@ -1,3 +1,4 @@
-rustc
 zlib1g-dev
-
+libjpeg-dev
+rustc
+cargo
