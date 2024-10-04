@@ -1,5 +1,8 @@
 streamlit==1.25.0
 streamlit_option_menu
+folium==0.12.1
+streamlit-folium==0.10.0
+geopandas==0.10.2
 Pillow==9.2.0
 transformers==4.27.0
 torch  
