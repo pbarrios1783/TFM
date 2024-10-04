@@ -10,5 +10,4 @@ pandas==1.4.3
 matplotlib==3.5.2
 wordcloud==1.8.1
 fpdf==1.7.2
-base64
 gtts==2.2.3  # Para texto a voz (gTTS)
