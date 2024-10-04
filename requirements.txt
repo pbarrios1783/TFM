@@ -4,7 +4,7 @@ streamlit-folium==0.11.1
 Pillow
 folium==0.14.0  # Este es necesario por streamlit-folium, que necesita >=0.13
 geopandas==0.13.0
-tokenizers==0.11.6
+tokenizers>=0.13.3
 transformers==4.15.0
 torch==2.4.1
 pandas==1.5.3
