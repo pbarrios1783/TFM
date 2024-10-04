@@ -13,3 +13,4 @@ wordcloud==1.9.3
 fpdf==1.7.2
 gtts==2.2.3
 python-dotenv==0.21.0
+python ==3.8
