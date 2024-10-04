@@ -1,5 +1,5 @@
 streamlit==1.25.0
-streamlit_option_menu
+streamlit_option_menu==0.3.13
 folium>=0.13
 streamlit-folium==0.10.0
 geopandas==0.10.2
