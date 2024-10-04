@@ -3,7 +3,7 @@ streamlit_option_menu==0.3.13
 folium>=0.13
 streamlit-folium==0.10.0
 geopandas==0.10.2
-Pillow==9.2.0
+Pillow==9.0.0
 transformers==4.27.0
 torch==2.4.1
 pandas==1.4.3
