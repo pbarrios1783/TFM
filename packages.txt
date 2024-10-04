@@ -1,4 +1,4 @@
 zlib1g-dev
 libjpeg-dev
-rustc=1.70
-cargo=1.70
+rustc=1.62
+cargo=1.62
