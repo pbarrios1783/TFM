@@ -21,6 +21,11 @@ s3 = boto3.client('s3',
 # Nombre del bucket y nombre del archivo
 BUCKET_NAME = 'tfm-modelo'
 FILE_KEY = 'model/'
+LOCAL_MODEL_PATH = 'model/'
+
+# Crear la carpeta local si no existe
+if not os.path.exists(LOCAL_MODEL_PATH):
+    os.makedirs(LOCAL_MODEL_PATH)
 
 # Función para descargar todos los archivos de la carpeta
 def download_files_from_s3(folder_name):
@@ -38,6 +43,31 @@ def download_files_from_s3(folder_name):
 
 # Descargar todos los archivos de la carpeta 'model/'
 download_files_from_s3(FOLDER_NAME)
+
+# Cargar el modelo y el tokenizer
+@st.cache_resource
+def load_model():
+    model_path = LOCAL_MODEL_PATH
+    safetensors_file = os.path.join(model_path, "model.safetensors")
+
+    # Verificar si el archivo model.safetensors existe localmente
+    if not os.path.exists(safetensors_file):
+        st.error(f"El archivo '{safetensors_file}' no se encontró. Asegúrate de que el archivo se haya descargado correctamente.")
+        return None, None
+
+    try:
+        # Cargar el tokenizer y el modelo usando los archivos descargados
+        st.write("Cargando el tokenizer y el modelo...")
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        state_dict = load_file(safetensors_file)
+        model = T5ForConditionalGeneration.from_pretrained(model_path, state_dict=state_dict)
+        st.success("Modelo y tokenizer cargados correctamente.")
+    except Exception as e:
+        st.error(f"Error al cargar el modelo: {e}")
+        return None, None
+
+    return tokenizer, model
+
 
 # Definir la función principal de la página
 def show_page():
@@ -85,19 +115,7 @@ def show_page():
         words = [word for word in words if word not in stop_words]
         return ' '.join(words)
 
-    # Cargar el modelo y el tokenizer
-    @st.cache_resource
-    def load_model():
-        model_path = "the_trained_models6"
-        try:
-            tokenizer = AutoTokenizer.from_pretrained(model_path)
-            state_dict = load_file(f"{model_path}/model.safetensors")
-            model = T5ForConditionalGeneration.from_pretrained(model_path, state_dict=state_dict)
-        except Exception as e:
-            st.error(f"Error al cargar el modelo: {e}")
-            return None, None
-        return tokenizer, model
-
+  
     # Función para clasificar el modelo de negocio
     def classify_business(text, tokenizer, model, business_models):
         preprocessed_text = preprocess_text(text)
