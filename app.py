@@ -6,6 +6,12 @@ from streamlit_option_menu import option_menu
 from gtts import gTTS
 import os
 
+# Configurar el nombre del app y el ícono en la pestaña del navegador
+st.set_page_config(
+    page_title="INVESTEK",  # Título que aparecerá en la pestaña
+    page_icon="🚀",  # Puedes usar emojis o subir tu propio favicon
+)
+
 # CSS personalizado para el diseño y la identidad visual con Poppins
 hide_streamlit_style = """
     <style>
