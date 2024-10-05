@@ -42,7 +42,7 @@ def download_files_from_s3(folder_name):
                     st.write(f"{file_name} descargado con éxito.")
 
 # Descargar todos los archivos de la carpeta 'model/'
-download_files_from_s3(FOLDER_NAME)
+download_files_from_s3(LOCAL_MODEL_PATH)
 
 # Cargar el modelo y el tokenizer
 @st.cache_resource
