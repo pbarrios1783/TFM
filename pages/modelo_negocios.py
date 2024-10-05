@@ -5,9 +5,39 @@ import re
 import pandas as pd
 from wordcloud import STOPWORDS
 from safetensors.torch import load_file
+import os
+import boto3
+from dotenv import load_dotenv
 
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
+# Configurar cliente de S3
+s3 = boto3.client('s3',
+                  aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+                  aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+                  region_name=os.getenv('AWS_DEFAULT_REGION'))
 
+# Nombre del bucket y nombre del archivo
+BUCKET_NAME = 'tfm-modelo'
+FILE_KEY = 'model/'
+
+# Función para descargar todos los archivos de la carpeta
+def download_files_from_s3(folder_name):
+    response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=folder_name)
+    if 'Contents' in response:
+        for obj in response['Contents']:
+            file_key = obj['Key']  # Nombre completo del archivo en S3 (incluye la carpeta)
+            file_name = file_key.split('/')[-1]  # Nombre del archivo
+            if file_name:  # Ignorar las "carpetas vacías" en S3
+                # Verificar si el archivo ya existe localmente
+                if not os.path.exists(f'model/{file_name}'):
+                    st.write(f"Descargando {file_name} desde S3...")
+                    s3.download_file(BUCKET_NAME, file_key, f'model/{file_name}')
+                    st.write(f"{file_name} descargado con éxito.")
+
+# Descargar todos los archivos de la carpeta 'model/'
+download_files_from_s3(FOLDER_NAME)
 
 # Definir la función principal de la página
 def show_page():
