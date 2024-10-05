@@ -5,39 +5,14 @@ import re
 import pandas as pd
 from wordcloud import STOPWORDS
 from safetensors.torch import load_file
-import gdown
-import zipfile
-import os
 
 
-# Función para descargar el archivo ZIP desde Google Drive y descomprimirlo
-def download_and_extract_model(file_id, output):
-    try:
-        # Descargar el archivo ZIP desde Google Drive
-        gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
-
-        # Descomprimir el archivo ZIP
-        with zipfile.ZipFile(output, 'r') as zip_ref:
-            zip_ref.extractall("./model")
-        
-        # Verificar si el archivo se descargó y descomprimió correctamente
-        if os.path.exists("./model"):
-            st.success("Modelo descargado y descomprimido con éxito.")
-        else:
-            st.error("Error al descargar o descomprimir el modelo.")
-    except Exception as e:
-        st.error(f"Ocurrió un error al descargar o descomprimir el archivo: {e}")
 
 
 # Definir la función principal de la página
 def show_page():
     st.title("Clasificador de Modelos de Negocio")
     
-    # Verificar si el modelo ya está descargado
-    if not os.path.exists("./model"):
-        st.info("Descargando modelo desde Google Drive...")
-        download_and_extract_model("14K8RRnbCYy8Pof0BzytDXNmzaBm-Fvt7", "model.zip")  
-
     # Asegurarnos de que 'business_answers' es una lista y no un diccionario
     if 'business_answers' not in st.session_state:
         st.session_state['business_answers'] = []  # Inicializamos como lista
