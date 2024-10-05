@@ -1,5 +1,5 @@
-libgdal-dev  # For GeoPandas
-libspatialindex-dev  # For spatial indexing with GeoPandas
-libmagic1  # For file-type detection
-libcairo2  # For plotting with Matplotlib and Folium
-libpango1.0-0  # For rendering text in plots
+libgdal-dev 
+libspatialindex-dev  
+libmagic1  
+libcairo2  
+libpango1.0-0  
