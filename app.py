@@ -243,10 +243,10 @@ st.sidebar.markdown("""
 <div class="instrucciones-box">
 <h3>Instrucciones</h3>
 <ol>
-    <li>Escribe tú <strong>Modelo</strong> de negocio tecnológico.</li>
+    <li>Describe tú <strong>Modelo</strong> de negocio tecnológico.</li>
     <li>Completa el <strong>Cuestionario</strong> para obtener recomendaciones.</li>
     <li>Genera y descarga informes personalizados en el<strong> Generador de Informes</strong>.</li>
-    <li>Explora los datos en el <strong>Mapa Interactivo</strong> y o la <strong>Data</strong>.</li>
+    <li>Explora los datos en el <strong>Mapa Interactivo</strong> y/o en <strong>Data</strong>.</li>
 </ol>
 </div>
 <style>
