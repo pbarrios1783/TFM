@@ -15,6 +15,7 @@ fpdf==1.7.2
 python-dotenv==1.0.0
 gTTS==2.5.1
 openpyxl==3.1.5
+boto3==1.28.0
 
 
  
