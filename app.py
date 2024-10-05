@@ -194,18 +194,18 @@ texto_motivacional = """
 """
 
 # Función para hablar con gTTS (usando el idioma español)
-def hablar_con_gtts(texto):
-    tts = gTTS(text=texto, lang='es', tld='es')  # Utilizamos 'es' para español de España
-    tts.save("voz_espana.mp3")
-    os.system("start voz_espana.mp3")     
+#def hablar_con_gtts(texto):
+ #   tts = gTTS(text=texto, lang='es', tld='es')  # Utilizamos 'es' para español de España
+  #  tts.save("voz_espana.mp3")
+   # os.system("start voz_espana.mp3")     
 
 # Función para mostrar la portada
 def show_portada():
     # Título principal centrado
     st.title("Descubre el Potencial de España")
     st.write(texto_motivacional)
-    if st.button("🎧 Escuchar introducción"):
-        hablar_con_gtts(texto_motivacional)
+#    if st.button("🎧 Escuchar introducción"):
+ #       hablar_con_gtts(texto_motivacional)
   
   # Subir la imagen del mapa más arriba y ajustar su altura
     mapa_españa = Image.open("./imagenes/mapa.jpg")  # Ruta de la imagen
