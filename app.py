@@ -214,7 +214,7 @@ def show_portada():
  #       hablar_con_gtts(texto_motivacional)
   
   # Subir la imagen del mapa más arriba y ajustar su altura
-    mapa_españa = Image.open("./imagenes/mapa.jpg")  # Ruta de la imagen
+    mapa_españa = Image.open("./imagenes/spain.jpg")  # Ruta de la imagen
     st.image(mapa_españa, caption=" ", use_column_width=True)   
 
 # Definir las páginas disponibles con sus rutas correspondientes
