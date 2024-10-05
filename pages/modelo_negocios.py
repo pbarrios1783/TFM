@@ -27,7 +27,7 @@ LOCAL_MODEL_PATH = 'model/'
 if not os.path.exists(LOCAL_MODEL_PATH):
     os.makedirs(LOCAL_MODEL_PATH)
 
-# Función para descargar todos los archivos de la carpeta
+# Función para descargar todos los archivos de la carpeta 'model/' desde S3
 def download_files_from_s3(folder_name):
     response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=folder_name)
     if 'Contents' in response:
@@ -35,11 +35,10 @@ def download_files_from_s3(folder_name):
             file_key = obj['Key']  # Nombre completo del archivo en S3 (incluye la carpeta)
             file_name = file_key.split('/')[-1]  # Nombre del archivo
             if file_name:  # Ignorar las "carpetas vacías" en S3
+                local_file_path = os.path.join(LOCAL_MODEL_PATH, file_name)
                 # Verificar si el archivo ya existe localmente
-                if not os.path.exists(f'model/{file_name}'):
-                    st.write(f"Descargando {file_name} desde S3...")
-                    s3.download_file(BUCKET_NAME, file_key, f'model/{file_name}')
-                    st.write(f"{file_name} descargado con éxito.")
+                if not os.path.exists(local_file_path):
+                    s3.download_file(BUCKET_NAME, file_key, local_file_path)
 
 # Descargar todos los archivos de la carpeta 'model/'
 download_files_from_s3(LOCAL_MODEL_PATH)
