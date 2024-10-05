@@ -117,7 +117,7 @@ with st.sidebar:
 # Definir las rutas de los tres generadores de informes
 GENERADORES = {
     'Modelo de Negocio': 'pages/report_generator1.py',
-    'Competidores en Tu Sector': 'pages/report_generator2.py',
+    'Competidores en el Sector': 'pages/report_generator2.py',
     'Recomendación de la Mejor Comunidad Autónoma': 'pages/report_generator3.py',
 }
 
