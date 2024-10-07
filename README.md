@@ -1,4 +1,4 @@
-TFM - Plataforma de Recomendación de Inversión y Modelos de Negocio
+**TFM - Plataforma de Recomendación de Inversión y Modelos de Negocio**
 Descripción del Proyecto
 Este proyecto es una plataforma interactiva diseñada para emprendedores e inversores que buscan tomar decisiones basadas en datos sobre modelos de negocio y oportunidades de inversión en España. La aplicación clasifica los modelos de negocio, genera informes personalizados y recomienda la mejor comunidad autónoma para invertir en función de factores económicos, tecnológicos y sociales.
 
