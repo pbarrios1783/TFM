@@ -1,3 +1,4 @@
+# Importamos las librerias
 import streamlit as st
 from transformers import AutoTokenizer, T5ForConditionalGeneration
 import torch
@@ -9,10 +10,10 @@ import os
 import boto3
 from dotenv import load_dotenv
 
-# Cargar las variables de entorno desde el archivo .env
+# Cargamos las variables de entorno desde el archivo .env
 load_dotenv()
 
-# Configurar cliente de S3
+# Configuramos cliente de S3
 s3 = boto3.client('s3',
                   aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
                   aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
@@ -23,17 +24,17 @@ BUCKET_NAME = 'tfm-modelo'
 FILE_KEY = 'model/'
 LOCAL_MODEL_PATH = 'model/'
 
-# Crear la carpeta local si no existe
+# Ruta del modelo
 if not os.path.exists(LOCAL_MODEL_PATH):
     os.makedirs(LOCAL_MODEL_PATH)
 
-# Función para descargar todos los archivos de la carpeta 'model/' desde S3
+# Creamos una función para descargar todos los archivos de la carpeta 'model/' desde S3
 def download_files_from_s3(folder_name):
     response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=folder_name)
     if 'Contents' in response:
         for obj in response['Contents']:
-            file_key = obj['Key']  # Nombre completo del archivo en S3 (incluye la carpeta)
-            file_name = file_key.split('/')[-1]  # Nombre del archivo
+            file_key = obj['Key']  
+            file_name = file_key.split('/')[-1]  
             if file_name:  # Ignorar las "carpetas vacías" en S3
                 local_file_path = os.path.join(LOCAL_MODEL_PATH, file_name)
                 # Verificar si el archivo ya existe localmente
@@ -49,13 +50,13 @@ def load_model():
     model_path = LOCAL_MODEL_PATH
     safetensors_file = os.path.join(model_path, "model.safetensors")
 
-    # Verificar si el archivo model.safetensors existe localmente
+    # Verifica si el archivo model.safetensors existe localmente
     if not os.path.exists(safetensors_file):
         st.error(f"El archivo '{safetensors_file}' no se encontró. Asegúrate de que el archivo se haya descargado correctamente.")
         return None, None
 
     try:
-        # Cargar el tokenizer y el modelo usando los archivos descargados
+        # Carga el tokenizer y el modelo usando los archivos descargados
         st.write("Cargando el tokenizer y el modelo...")
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         state_dict = load_file(safetensors_file)
@@ -68,7 +69,7 @@ def load_model():
     return tokenizer, model
 
 
-# Definir la función principal de la página
+# Definimos la función principal de la página
 def show_page():
     st.title("Clasificador de Modelos de Negocio")
     
