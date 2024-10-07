@@ -1,13 +1,14 @@
+# Importamos las librerías
 import streamlit as st
 import pandas as pd
 from fpdf import FPDF
 import base64
 
-# Cargar los datos de la comunidad y el score
+# Cargamos los datos de la comunidad y el score
 df_final = pd.read_excel("./data/df_final.xlsx")
 df_score = pd.read_excel("./data/total_score.xlsx")
 
-# Cargar las plantillas desde archivos de texto
+# Cargamos las plantillas desde archivos de texto
 def load_templates():
     try:
         with open('./templates/community_template.txt', 'r', encoding='utf-8') as file:
@@ -19,7 +20,7 @@ def load_templates():
         st.error("No se pudieron cargar las plantillas.")
         return None, None
 
-# Función para generar el PDF con Poppins y el logo
+# Creamos la función para generar el PDF con Poppins y el logo
 def generate_pdf(report_text, community_data):
     pdf = FPDF()
     pdf.add_page()
@@ -32,7 +33,7 @@ def generate_pdf(report_text, community_data):
     pdf.set_font('Poppins', 'B', 16)
 
     # Añadir el logo
-    logo_path = "./imagenes/3.png"  # Asegúrate de que la ruta sea correcta
+    logo_path = "./imagenes/3.png" 
     pdf.image(logo_path, x=10, y=8, w=33)
 
     # Título del informe
