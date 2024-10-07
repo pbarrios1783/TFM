@@ -1,3 +1,4 @@
+# Importamos las librerias
 import streamlit as st
 from PIL import Image
 from pathlib import Path
@@ -6,13 +7,13 @@ from streamlit_option_menu import option_menu
 from gtts import gTTS
 import os
 
-# Configurar el nombre del app y el ícono en la pestaña del navegador
+# Configuramos el nombre del app y el ícono en la pestaña del navegador
 st.set_page_config(
-    page_title="INVESTEK",  # Título que aparecerá en la pestaña
-    page_icon="imagenes/3.png",  # Puedes usar emojis o subir tu propio favicon
+    page_title="INVESTEK",  
+    page_icon="imagenes/3.png",  
 )
 
-# CSS personalizado para el diseño y la identidad visual con Poppins
+# Agregamos CSS personalizado para el diseño y la identidad visual con Poppins
 hide_streamlit_style = """
     <style>
     /* Ocultar la barra lateral superior de Streamlit */
@@ -74,22 +75,22 @@ hide_streamlit_style = """
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# Ruta del archivo SVG local
+# Agregamos la ruta del archivo SVG local
 svg_file_path = "./imagenes/3.svg"
 
-# Mostrar el archivo SVG en la barra lateral utilizando HTML
+# Mostramos el archivo SVG del logo en la barra lateral utilizando HTML
 with st.sidebar:
     # Leer el contenido del archivo SVG
     with open(svg_file_path, "r", encoding="utf-8") as svg_file:
         svg_content = svg_file.read()
 
-    # Mostrar el archivo SVG en la barra lateral con un tamaño personalizado (ejemplo: ancho de 100px)
+    # Mostramos el archivo SVG en la barra lateral con un tamaño personalizado 
     st.markdown(f"""
     <style>
     /* Contenedor general de la barra lateral */
     .sidebar .sidebar-content {{
-        width: auto;  /* Ajustar el ancho del container de la barra lateral */
-        padding: 0.9px;  /* Reducir el padding del contenedor */
+        width: auto;  /* Ajusta el ancho del container de la barra lateral */
+        padding: 0.9px;  /* Reduce el padding del contenedor */
     }}
     
     .logo-container {{
@@ -107,8 +108,8 @@ with st.sidebar:
     
     /* Ajustar el tamaño del menú de navegación */
     .css-1v3fvcr {{
-        font-size: 14px;  /* Tamaño de fuente más pequeño para el menú de navegación */
-         padding: 1px;  /* Reducir el padding entre elementos del menú */
+        font-size: 14px;  /* Tamaño de fuente para el menú de navegación */
+         padding: 1px;  /* Reduce el padding entre elementos del menú */
     }}
     
     </style>
@@ -120,7 +121,7 @@ with st.sidebar:
 
 
     
-# Definir las rutas de los tres generadores de informes
+# Definimos las rutas de los tres generadores de informes
 GENERADORES = {
     'Modelo de Negocio': 'pages/report_generator1.py',
     'Competidores en el Sector': 'pages/report_generator2.py',
@@ -128,32 +129,32 @@ GENERADORES = {
 }
 
 
-# Función para mostrar la página del Generador de Informes unificado
+# Creamos una función para mostrar la página del Generador de Informes unificado
 def show_generador_informes():
     st.title("Generador de Informes")
     
     st.write("Seleccione el tipo de generador de informes que desea usar:")
     
-    # Añadir un contenedor alrededor del selector y el botón de informe para mejorar el diseño
+    # Añadimos un contenedor alrededor del selector y el botón de informe para mejorar el diseño
     with st.container():
-        # Crear un selector para que el usuario elija el generador
+        # Creamos un selector para que el usuario elija el generador
         seleccion = st.radio("Elige un generador de informes", list(GENERADORES.keys()))
         
-        # Separador visual entre el selector y el botón
+        # Hcaemos una separación visual entre el selector y el botón
         st.markdown("<hr>", unsafe_allow_html=True)
     
-    # Cargar y ejecutar el generador seleccionado
+    # Cargamos y ejecutamos el generador seleccionado
     selected_generator = GENERADORES[seleccion]
     generador_module = load_module(seleccion, selected_generator)
     generador_module.show_page()  
 
     
-# Crear el menú de navegación en la barra lateral
+# Creamos el menú de navegación en la barra lateral
 with st.sidebar:
     selected = option_menu(
         menu_title="Navegación",  # Título del menú
-        options=["Portada", "Modelo de Negocio", "Comunidad Autónoma", "Generador de Informes", "Mapa", "Data"],  # Opciones del menú
-        icons=["house", "pencil", "grid", "file-earmark-text", "map", "table"],  # Íconos para cada opción
+        options=["Portada", "Modelo de Negocio", "Comunidad Autónoma", "Generador de Informes", "Mapa", "Data"],  # Creamos las opciones del menú
+        icons=["house", "pencil", "grid", "file-earmark-text", "map", "table"],  # Creamos distinto íconos para cada opción
         menu_icon="cast",  # Ícono para el menú en general
         default_index=0,  # Índice predeterminado
         styles={
@@ -172,8 +173,8 @@ with st.sidebar:
             "nav-link": {
                 "font-size": "12px",  # Tamaño de fuente ligeramente mayor para mejor legibilidad
                 "text-align": "left", 
-                "margin": "0.5px",  # Aumentar el margen para mayor espaciado entre los elementos
-                "color": "#000000",  # Color del texto normal (no seleccionado)
+                "margin": "0.5px",  # Margen para mayor espaciado entre los elementos
+                "color": "#000000",  # Color del texto normal 
                 "background-color": "transparent",  # Fondo de los botones no seleccionados
             },
             "nav-link-selected": {
@@ -184,14 +185,14 @@ with st.sidebar:
         }     
     )     
 
-# Función para cargar los módulos de cada página dinámicamente
+# Creamos una función para cargar los módulos de cada página dinámicamente
 def load_module(module_name, module_path):
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
-# Texto para convertir a voz
+# Texto
 texto_motivacional = """
     España es uno de los países más atractivos para la inversión, con una economía en crecimiento
     y grandes oportunidades en sectores clave como la tecnología, turismo y energía renovable.
@@ -199,52 +200,44 @@ texto_motivacional = """
     ¡Invierta en España y aproveche todas estas oportunidades de crecimiento!
 """
 
-# Función para hablar con gTTS (usando el idioma español)
-#def hablar_con_gtts(texto):
- #   tts = gTTS(text=texto, lang='es', tld='es')  # Utilizamos 'es' para español de España
-  #  tts.save("voz_espana.mp3")
-   # os.system("start voz_espana.mp3")     
-
 # Función para mostrar la portada
 def show_portada():
     # Título principal centrado
     st.title("Descubre el Potencial de España")
     st.write(texto_motivacional)
-#    if st.button("🎧 Escuchar introducción"):
- #       hablar_con_gtts(texto_motivacional)
-  
-  # Subir la imagen del mapa más arriba y ajustar su altura
+
+  # Agreagamos la imagen
     mapa_españa = Image.open("./imagenes/spain.jpg")  # Ruta de la imagen
     st.image(mapa_españa, caption=" ", use_column_width=True)   
 
-# Definir las páginas disponibles con sus rutas correspondientes
+# Definimos las páginas disponibles con sus rutas correspondientes
 PAGES = {
     'Portada': 'app.py',  
     'Modelo de Negocio': 'pages/modelo_negocios.py',
     'Comunidad Autónoma': 'pages/questionnaire.py',
-    'Generador de Informes': None, 
+    'Generador de Informes': None, # El generador de informes tiene un submenu
     'Mapa': 'pages/heatmap.py',
     'Data': 'pages/data.py',
 }
 
-# Lógica para cargar la página seleccionada
+# Creamos la lógica para cargar la página seleccionada
 if selected == 'Portada':
     show_portada()
 elif selected =='Generador de Informes':
-    # Llamar a la funcion que maneja los generadores de informes
+    # Llamamos a la funcion que maneja los generadores de informes
     show_generador_informes()
 else:
-    # Código para asegurarnod de no sobrescribir variables innecesarias
+    # Creamos un código para asegurarnos de no sobrescribir variables innecesarias
     if selected == "Comunidad Autónoma" and "answers" not in st.session_state:
         st.session_state["answers"] = {}
     if selected == "Modelo de Negocio" and "business_answers" not in st.session_state:
         st.session_state["business_answers"] = []
 
-    # Cargar y ejecutar la página seleccionada dinámicamente
+    # Cargamos y ejecutamos la página seleccionada dinámicamente
     page_module = load_module(selected, PAGES[selected])
     page_module.show_page()  # Llamamos a la función `show_page` de cada página
 
-# Instrucciones formateadas debajo del menú de navegación
+# Creamos instrucciones formateadas debajo del menú de navegación
 st.sidebar.markdown("""
 <div class="instrucciones-box">
 <h3>Instrucciones</h3>
@@ -282,7 +275,7 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Footer de la aplicación
+# Creamos el footer de la aplicación
 st.markdown("""
     <footer class="footer">  <!-- Añadimos la clase "footer" al HTML -->
         <p>© 2024 Investek. Todos los derechos reservados.</p>
