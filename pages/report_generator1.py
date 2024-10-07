@@ -6,7 +6,7 @@ import base64
 
 
 # Obtenemos la clave de la API de OpenAI desde una variable de entorno
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets('OPENAI_API_KEY')
 
 if openai.api_key is None:
     st.error("No se encontró la clave de la API de OpenAI. Verifica el archivo .env.")
