@@ -1,12 +1,21 @@
+# Importamos las librerías
 import streamlit as st
 import openai
 from fpdf import FPDF
 import base64
+from dotenv import load_dotenv
+import os
 
-# Cargar la clave de la API de OpenAI desde una variable de entorno
-openai.api_key = 'sk-proj-E4T1hRlBoOLHxtYlWUeuT3BlbkFJeYGvXwY9QF1xE7pDoNqb'
+# Cargamos las variables de entorno desde el archivo .env
+load_dotenv()
 
-# Cargar la plantilla desde un archivo de texto
+# Obtenemos la clave de la API de OpenAI desde una variable de entorno
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+if openai.api_key is None:
+    st.error("No se encontró la clave de la API de OpenAI. Verifica el archivo .env.")
+
+# Cargamos la plantilla desde un archivo de texto
 def load_template():
     try:
         with open('./templates/business_template.txt', 'r', encoding='utf-8') as file:
@@ -16,7 +25,7 @@ def load_template():
         st.error("No se pudo cargar la plantilla del informe.")
         return None
 
-# Función para que GPT ajuste el template basado en las respuestas del modelo de negocio
+# Creamos la función para que GPT ajuste el template basado en las respuestas del modelo de negocio
 def ajustar_informe_con_gpt(template, respuestas):
     prompt = f"""
     Aquí tienes una plantilla de informe sobre un modelo de negocio. Ajusta esta plantilla basándote en las respuestas que el usuario ha proporcionado. Puedes agregar o modificar detalles para que el informe sea más relevante según las respuestas.
@@ -62,7 +71,7 @@ def generar_pdf(report_text):
     # Usar la fuente Poppins en el PDF
     pdf.set_font('Poppins', 'B', 16)
 
-    # Añadir el logo (Asegúrate de que el logo esté en el mismo directorio o proporciona la ruta)
+    # Añadimos el logo 
     logo_path = "./imagenes/3.png"  # Ruta del logo
     pdf.image(logo_path, x=10, y=8, w=33)
 
@@ -83,7 +92,7 @@ def generar_pdf(report_text):
 
     return pdf_output
 
-# Función para descargar el PDF con estilo personalizado
+# Creamos la función para descargar el PDF con estilo personalizado
 def descargar_pdf(pdf_output, filename):
     b64_pdf = base64.b64encode(pdf_output).decode('latin1')
 
@@ -113,7 +122,7 @@ def descargar_pdf(pdf_output, filename):
     
     st.markdown(button_css + href, unsafe_allow_html=True)
 
-# Aplicación de Streamlit
+# Mostramos en la aplicación de Streamlit
 def show_page():
     st.title("Modelo de Negocio")
 
@@ -122,7 +131,7 @@ def show_page():
     if not template:
         return
 
-    # Verificar si las respuestas ya están en st.session_state
+    # Verificamos si las respuestas ya están en st.session_state
     if 'business_answers' in st.session_state and isinstance(st.session_state['business_answers'], list):
         respuestas = st.session_state['business_answers']
 
