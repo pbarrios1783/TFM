@@ -3,11 +3,7 @@ import streamlit as st
 import openai
 from fpdf import FPDF
 import base64
-from dotenv import load_dotenv
-import os
 
-# Cargamos las variables de entorno desde el archivo .env
-load_dotenv()
 
 # Obtenemos la clave de la API de OpenAI desde una variable de entorno
 openai.api_key = os.getenv('OPENAI_API_KEY')
