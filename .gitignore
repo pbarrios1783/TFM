@@ -1,0 +1,55 @@
+# Ignorar archivos de entorno
+.env
+
+# Ignorar dependencias instaladas
+__pycache__/
+*.py[cod]
+
+# Ignorar archivos de bases de datos temporales o locales
+*.sqlite3
+*.db
+
+# Ignorar archivos de paquetes de Python instalados
+venv/
+*.egg-info/
+*.whl
+
+# Ignorar archivos generados por editores de código
+.vscode/
+.idea/
+
+# Ignorar archivos de logs
+*.log
+*.pid
+*.out
+*.err
+
+# Ignorar archivos de configuración de contenedores
+docker-compose.yml
+Dockerfile
+
+# Ignorar archivos de fuentes precompiladas (Jupyter notebooks)
+.ipynb_checkpoints/
+
+# Ignorar archivos de configuración de contenedores de desarrollo
+.devcontainer/
+
+# Ignorar archivos de configuración específicos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de paquete comprimido
+*.zip
+*.tar.gz
+
+# Ignorar archivos de fuentes
+Poppins-Regular.ttf
+Poppins-Bold.ttf
+
+# Ignorar archivos de entorno de anaconda
+*.conda
+*.env
+
+# Otras configuraciones o archivos temporales
+*.tmp
+*.swp
