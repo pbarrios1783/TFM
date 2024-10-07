@@ -61,4 +61,20 @@ Después de configurar el entorno, puedes iniciar la aplicación ejecutando el s
 * Migrar el sistema de almacenamiento de archivos a una base de datos en la nube para permitir una mayor escalabilidad.
 
 ## Licencia
-Este proyecto está bajo la licencia del equipo Aaron Muñoz Maatouf, Esther Toribio Gómez, José María Lancho Rodríguez, Patricia Barrios Morales y	Ramón Serrano López Todos los derechos reservados ©2024. 
+El código fuente de esta aplicación ha sido desarrollado por el equipo de trabajo y está sujeto a una licencia personalizada. El uso del código está permitido únicamente para fines académicos o no comerciales, y no puede ser modificado ni redistribuido sin el consentimiento explícito de los autores.
+
+### Uso de un Modelo Preentrenado
+La aplicación utiliza un modelo preentrenado de Hugging Face para la clasificación de modelos de negocio. Este modelo se encuentra bajo la Licencia de Hugging Face, y su uso está sujeto a los términos y condiciones de dicha licencia.
+
+Importante: El código que interactúa con el modelo preentrenado de Hugging Face está limitado por los términos de uso de la licencia del modelo. Los usuarios deben asegurarse de cumplir con esos términos al utilizar esta funcionalidad.
+
+### Autores
+Este proyecto ha sido desarrollado por:
+
+Aaron Muñoz Maatouf
+Esther Toribio Gómez
+José María Lancho Rodríguez
+Patricia Barrios Morales
+Ramón Serrano López
+
+Todos los derechos reservados ©2024. 
