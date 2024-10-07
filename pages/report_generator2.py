@@ -1,9 +1,10 @@
+# Importamos las librerías
 import streamlit as st
 import pandas as pd
 from fpdf import FPDF
 import base64
 
-# Cargar el DataFrame de negocios en España
+# Cargamos el DataFrame de negocios en España
 def cargar_negocios_similares():
     try:
         df = pd.read_excel('./data/df_sintetico.xlsx')          
@@ -12,11 +13,11 @@ def cargar_negocios_similares():
         st.error("No se pudo encontrar el archivo.")
         return None
 
-# Función para filtrar los negocios similares por sector
+# Creamos una función para filtrar los negocios similares por sector
 def filtrar_negocios_similares(df, sector):
     return df[df['Sector'] == sector].head(10)  # Filtramos por sector y seleccionamos los 10 primeros
 
-# Función para generar el informe de negocios similares
+# Creamos una función para generar el informe de negocios similares
 def generar_informe_negocios_similares(negocios_df):
     template = """
     A continuación, se muestran algunas empresas que tienen un modelo de negocio similar al tuyo:
@@ -88,7 +89,7 @@ def generar_informe_negocios_similares(negocios_df):
     return informe
     
 
-# Función para generar el PDF con Poppins y logo
+# Creamos la función para generar el PDF con Poppins y logo
 def generar_pdf(report_text):
     pdf = FPDF()
     pdf.add_page()
@@ -121,7 +122,7 @@ def generar_pdf(report_text):
 
     return pdf_output
 
-# Función para descargar el PDF con estilo personalizado
+# Creamos una función para descargar el PDF con estilo personalizado
 def descargar_pdf(pdf_output, filename):
     b64_pdf = base64.b64encode(pdf_output).decode('latin1')
 
