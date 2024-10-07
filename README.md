@@ -61,4 +61,4 @@ Después de configurar el entorno, puedes iniciar la aplicación ejecutando el s
 * Migrar el sistema de almacenamiento de archivos a una base de datos en la nube para permitir una mayor escalabilidad.
 
 ## Licencia
-Este proyecto está bajo la licencia Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Puedes ver más detalles en el archivo `LICENSE`.
+Este proyecto está bajo la licencia Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). 
