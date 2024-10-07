@@ -1,10 +1,11 @@
+# Importamos las librerías
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
 
-# Cargar los datos
+# Cargamos los datos
 @st.cache_data
 def load_data():
     try:
