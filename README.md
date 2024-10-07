@@ -1,11 +1,11 @@
 # TFM - Inversión Tecnológica en España
 
 ## Descripción del Proyecto
-Este proyecto es una plataforma interactiva diseñada para emprendedores e inversores que buscan tomar decisiones basadas en datos sobre modelos de negocio y oportunidades de inversión en España. La aplicación clasifica los modelos de negocio, genera informes personalizados y recomienda la mejor comunidad autónoma para invertir en función de factores económicos, tecnológicos y sociales.
+Este proyecto es una plataforma interactiva diseñada para emprendedores e inversores que buscan tomar decisiones basadas en datos sobre modelos de negocio y oportunidades de inversión en España. También es susceptible de ser utilizada por Administraciones Públicas con interés en una regulación que favorezca la inversión privada, orientada al sector tecnológico, en su ámbito geográfico. La aplicación clasifica los modelos de negocio, genera informes personalizados y recomienda la mejor comunidad autónoma para invertir en función de factores económicos, tecnológicos y sociales.
 
 ## Características Principales
 ### 1. Clasificación de Modelos de Negocio: 
-El usuario completa un cuestionario con preguntas abiertas sobre su modelo de negocio. A través del uso del modelo preentrenado T5 (de Hugging Face), el sistema clasifica automáticamente el tipo de negocio en categorías como SaaS, Fintech, Healthtech, entre otras.
+El usuario completa un cuestionario con preguntas abiertas sobre su modelo de negocio. A través del entrenamiento del modelo T5 Large (de Hugging Face), el sistema clasifica automáticamente el tipo de negocio en categorías como SaaS, Inteligencia Artificial, Fintech, Healthtech, entre otras.
 
 ### 2. Recomendación de Comunidad Autónoma: 
 La plataforma presenta un cuestionario dinámico basado en factores clave de inversión (población, infraestructura tecnológica, talento disponible, etc.). En función de las respuestas del usuario, se genera una scorecard que recomienda la comunidad autónoma más adecuada para invertir.
@@ -61,4 +61,4 @@ Después de configurar el entorno, puedes iniciar la aplicación ejecutando el s
 * Migrar el sistema de almacenamiento de archivos a una base de datos en la nube para permitir una mayor escalabilidad.
 
 ## Licencia
-Este proyecto está bajo la licencia del equipo Aaron Muñoz Maatouf, Esther Toribio Gómez, José María Lancho, Patricia Barrios Morales y	Ramón Serrano López. 
+Este proyecto está bajo la licencia del equipo Aaron Muñoz Maatouf, Esther Toribio Gómez, José María Lancho Rodríguez, Patricia Barrios Morales y	Ramón Serrano López Todos los derechos reservados ©2024. 
